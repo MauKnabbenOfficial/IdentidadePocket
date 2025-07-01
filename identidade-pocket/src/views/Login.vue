@@ -28,10 +28,9 @@ const senha = ref('');
 const erro = ref('');
 const router = useRouter();
 
-function fazerLogin() {
-  if (login(usuario.value, senha.value)) {
+async function fazerLogin() {
+  if (await login(usuario.value, senha.value)) {
     router.push('/tabs/etapa1');
-    setTimeout(() => document.activeElement?.blur(), 50);
   } else {
     erro.value = 'Usuário ou senha inválidos';
   }
