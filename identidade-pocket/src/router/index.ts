@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Login from '@/views/Login.vue';
 import TabsPage from '@/views/TabsPage.vue';
-import { isLoggedIn } from '@/utils/auth';
+import { isLoggedIn, isLoggedInAsync } from '@/utils/auth';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', redirect: '/login' },
@@ -23,8 +23,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.path.startsWith('/tabs') && !isLoggedIn()) {
+router.beforeEach(async (to, from, next) => {
+  if (to.path.startsWith('/tabs') && await !isLoggedInAsync()) {
     next('/login');
   } else {
     next();
