@@ -13,6 +13,5 @@ const router = useRouter();
 function fazerLogout() {
   logout();
   router.push('/login');
-  setTimeout(() => document.activeElement?.blur(), 50);
 }
 </script>
