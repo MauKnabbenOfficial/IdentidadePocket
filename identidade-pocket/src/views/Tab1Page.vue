@@ -9,5 +9,4 @@
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonContent } from "@ionic/vue";
 import ExploreContainer from "@/components/ExploreContainer.vue";
-// import EtapasHeader from "@/components/EtapasHeader.vue";
 </script>
