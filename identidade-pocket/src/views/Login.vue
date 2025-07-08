@@ -30,7 +30,9 @@ const router = useRouter();
 
 async function fazerLogin() {
   if (await login(usuario.value, senha.value)) {
-    router.push('/tabs/etapa1');
+    // router.push('/primeiroAcesso');
+    router.push('/primeiroAcesso');
+
   } else {
     erro.value = 'Usuário ou senha inválidos';
   }
