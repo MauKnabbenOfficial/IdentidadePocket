@@ -13,16 +13,16 @@ export class Viagem {
         public organizacao: Organizacao,
         public dataInicio: Date,
         public dataFim: Date,
-        public hospedagem: Hospedagem,
-        public transporte: Transporte,
-        public motivacaoInteresse: MotivacaoInteresse,
-        public atrativosVisitados: Atrativo[],
-        public avaliacoes: Avaliacao[]
+        public hospedagens: Hospedagem[] | null,
+        public transporte: Transporte | null,
+        public motivacaoInteresse: MotivacaoInteresse | null,
+        public atrativosVisitados: Atrativo[] | null,
+        public avaliacoes: Avaliacao[] | null
     ) {}
 
     static fromJSON(json: string): Viagem {
         const obj = JSON.parse(json);
-        return new Viagem(obj.id, obj.planejamento, obj.organizacao, new Date(obj.dataInicio), new Date(obj.dataFim), obj.hospedagem, obj.transporte, obj.motivacaoInteresse, obj.atrativosVisitados, obj.avaliacoes);
+        return new Viagem(obj.id, obj.planejamento, obj.organizacao, new Date(obj.dataInicio), new Date(obj.dataFim), obj.hospedagens, obj.transporte, obj.motivacaoInteresse, obj.atrativosVisitados, obj.avaliacoes);
     }
 
     toJSONstr(): string {
@@ -31,7 +31,7 @@ export class Viagem {
             organizacao: this.organizacao,
             dataInicio: this,
             dataFim: this.dataFim,
-            hospedagem: this.hospedagem,
+            hospedagem: this.hospedagens,
             transporte: this.transporte,
             motivacaoInteresse: this.motivacaoInteresse,
             atrativosVisitados: this.atrativosVisitados,
